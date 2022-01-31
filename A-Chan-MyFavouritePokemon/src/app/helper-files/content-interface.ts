@@ -1,5 +1,5 @@
 interface Content {
-  id: number;
+  id: Number;
   title: String;
   description: String;
   creator: String;
