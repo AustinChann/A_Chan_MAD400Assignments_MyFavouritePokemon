@@ -1,0 +1,12 @@
+<p>content-list works!</p>
+
+<table>
+  <thead>
+    <th>Name</th>
+    <th></th>
+  </thead>
+
+</table>
+<app-content-list *ngFor="let pokemon of pokemonArray"[content]="pokemon">
+  <h1>{pokemon.title}</h1>
+</app-content-list>
