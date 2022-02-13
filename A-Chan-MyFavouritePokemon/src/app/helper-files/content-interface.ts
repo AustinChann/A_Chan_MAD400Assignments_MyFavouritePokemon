@@ -1,9 +1,9 @@
-interface Content {
-  id: Number;
-  title: String;
-  description: String;
-  creator: String;
-  imgURL?: String;
-  type?: String;
-  tags?: String[];
+export interface Content {
+  id: number;
+  title: string;
+  description: string;
+  creator: string;
+  imgURL?: string;
+  type?: string;
+  tags?: string[];
 }
