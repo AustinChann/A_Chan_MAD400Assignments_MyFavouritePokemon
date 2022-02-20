@@ -18,14 +18,16 @@ export class ContentListComponent implements OnInit {
       description: 'It can swim while towing a large ship. It bashes down foes with a swing of its thick arms.',
       creator: 'Game Freak',
       imgURL: 'https://img.pokemondb.net/artwork/swampert.jpg',
-      type: 'Water/Ground'
+      type: 'Water/Ground',
+      tags: ['Starter']
     }, {
       id: 1,
       title: 'Blaziken',
       description: 'Flames spout from its wrists, enveloping its knuckles. Its punches scorch its foes.',
       creator: 'Game Freak',
       imgURL: 'https://img.pokemondb.net/artwork/blaziken.jpg',
-      type: 'Fire/Fighting'
+      type: 'Fire/Fighting',
+      tags: ['Starter']
     }, {
       id: 2,
       title: 'Eevee',
@@ -59,7 +61,8 @@ export class ContentListComponent implements OnInit {
       description: 'It is said that Charizard’s fire burns hotter if it has experienced harsh battles.',
       creator: 'Game Freak',
       imgURL: 'https://img.pokemondb.net/artwork/charizard.jpg',
-      type: 'Fire/Flying'
+      type: 'Fire/Flying',
+      tags: ['Starter']
     }, {
       id: 6,
       title: 'Type: Null',
@@ -72,6 +75,11 @@ export class ContentListComponent implements OnInit {
       description: 'It is said to have emerged from an egg in a place where there was nothing then shaped the world.',
       creator: 'Game Freak',
       imgURL: 'https://img.pokemondb.net/artwork/arceus.jpg'
+    }, {
+      id: 8,
+      title: 'Ditto',
+      description: 'It has the ability to reconstitute its entire cellular structure to transform into whatever it sees.',
+      creator: 'Game Freak',
     }];
   }
 
