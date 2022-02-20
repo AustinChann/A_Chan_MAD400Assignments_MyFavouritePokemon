@@ -23,6 +23,7 @@
   :host.found {
     border: 3px solid greenyellow;
   }
+
   :host(.content-i) {
 
   }
