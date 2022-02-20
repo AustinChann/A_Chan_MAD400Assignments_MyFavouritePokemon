@@ -8,6 +8,7 @@ import { Content } from '../helper-files/content-interface';
 })
 export class ContentListComponent implements OnInit {
     pokemonArray: Content[];
+    titleFound?: boolean;
 
   constructor() {
 
@@ -59,10 +60,35 @@ export class ContentListComponent implements OnInit {
       creator: 'Game Freak',
       imgURL: 'https://img.pokemondb.net/artwork/charizard.jpg',
       type: 'Fire/Flying'
+    }, {
+      id: 6,
+      title: 'Type: Null',
+      description: 'The heavy control mask it wears suppresses its intrinsic capabilities. This Pokémon has some hidden special power.',
+      creator: 'Game Freak',
+      imgURL: 'https://img.pokemondb.net/artwork/type-null.jpg'
+    }, {
+      id: 7,
+      title: 'Arceus',
+      description: 'It is said to have emerged from an egg in a place where there was nothing then shaped the world.',
+      creator: 'Game Freak',
+      imgURL: 'https://img.pokemondb.net/artwork/arceus.jpg'
     }];
   }
 
-  ngOnInit(): void {
-  }
+    ngOnInit(): void {
+    }
+
+    checkForTitle(title: string) {
+      if (this.pokemonArray.some(p => p.title === title)) {
+        this.titleFound = true;
+      } else {
+        this.titleFound = false;
+      }
+      if(this.pokemonArray.filter(p => p.title === title).length) {
+        this.titleFound = true;
+      } else {
+        this.titleFound = false;
+      }
+    }
 
 }
