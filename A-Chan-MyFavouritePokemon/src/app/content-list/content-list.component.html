@@ -1,3 +1,3 @@
-<app-content-card *ngFor="let pokemon of pokemonArray; first as isFirstElement"
-                  [content]="pokemon" [class.is-first]="isFirstElement">
+<app-content-card *ngFor="let pokemon of pokemonArray; index as i; first as isFirstElement"
+                  [content]="pokemon" [class.is-first]="isFirstElement" class="content-i">
 </app-content-card>
