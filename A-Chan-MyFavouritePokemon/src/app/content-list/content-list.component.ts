@@ -99,4 +99,10 @@ export class ContentListComponent implements OnInit {
       }
     }
 
+    addPokemonToList(newPokemonFromChild: Content): void {
+      this.pokemonArray.push(newPokemonFromChild);
+      this.pokemonArray = [...this.pokemonArray];
+      console.log("Pokemon list: ", this.pokemonArray)
+    }
+
 }

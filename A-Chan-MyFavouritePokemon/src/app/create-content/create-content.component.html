@@ -1,0 +1,17 @@
+<form>
+  <div>
+    <p>Pokemon ID: <input #id type="number"></p>
+    <p>Name: <input #name type="text"></p>
+    <p>Description: <input #description type="text"></p>
+    <p>Creator: <input type="text" #creator value="Game Freak"></p>
+    <p>Image Link (optional): <input #imageURL type="text"></p>
+    <p>Typing (optional): <input #type type="text" placeholder="Water/Ground"></p>
+    <p>Tags (optional): <input #tags type="text>" placeholder="Starter, Mega, Hoenn"></p>
+  </div>
+  <button (click)="addPokemon(id.value, name.value, description.value, creator.value, imageURL.value,
+  type.value, tags.value)">Add Pokemon</button>
+  <div>
+    <span class="success" *ngIf="pokemonAdded"> {{ name.value}} was added to the list!</span>
+    <span class="failure" *ngIf="pokemonAdded === false">Unable to add pokemon to list</span>
+  </div>
+</form>
