@@ -1,7 +1,6 @@
 <app-create-content (addPokemonEvent)="addPokemonToList($event)">
 </app-create-content>
 <br>
-<!--<form>-->
 <div>
   <input #titleSearch>
   <button (click)="checkForTitle(titleSearch.value)">Title Check</button>
@@ -21,15 +20,12 @@
                   [content]="pokemon" [class.is-first]="isFirstElement" class="type: null">
 </app-content-card>
 
-<app-content-card [class.found]="titleSearch.value === pokemon.title" *ngFor="let pokemon of (pokemonArray | pokemonType: 'Water/Ground'); first as isFirstElement"
-                  [content]="pokemon" [class.is-first]="isFirstElement" class="swampert">
-</app-content-card>
+<!--<app-content-card [class.found]="titleSearch.value === pokemon.title" *ngFor="let pokemon of (pokemonArray | pokemonType: 'Water/Ground'); first as isFirstElement"-->
+<!--                  [content]="pokemon" [class.is-first]="isFirstElement" class="swampert">-->
+<!--</app-content-card>-->
 
-<app-content-card [class.found]="titleSearch.value === pokemon.title" *ngFor="let pokemon of (pokemonArray | pokemonType: 'Fire/Fighting'); first as isFirstElement"
-                  [content]="pokemon" [class.is-first]="isFirstElement" class="blaziken">
-</app-content-card>
+<!--<app-content-card [class.found]="titleSearch.value === pokemon.title" *ngFor="let pokemon of (pokemonArray | pokemonType: 'Fire/Fighting'); first as isFirstElement"-->
+<!--                  [content]="pokemon" [class.is-first]="isFirstElement" class="blaziken">-->
+<!--</app-content-card>-->
 
-<app-content-card [class.found]="titleSearch.value === pokemon.title" *ngFor="let pokemon of (pokemonArray | pokemonType: 'Psychic'); first as isFirstElement"
-                  [content]="pokemon" [class.is-first]="isFirstElement" class="mew">
-</app-content-card>
 
