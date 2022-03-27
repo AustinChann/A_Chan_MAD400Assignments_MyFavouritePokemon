@@ -16,7 +16,8 @@ export class ContentListComponent implements OnInit {
   }
 
     ngOnInit(): void {
-      this.pokemonService.getContent().subscribe(listOfPokemon => this.pokemonArray = listOfPokemon);
+      this.getContentFromServer();
+      //this.pokemonService.getContent().subscribe(listOfPokemon => this.pokemonArray = listOfPokemon);
     }
 
     checkForTitle(title: string) {
@@ -32,4 +33,31 @@ export class ContentListComponent implements OnInit {
       }
     }
 
+    getContentFromServer(): void {
+      this.pokemonService.getContent().subscribe(pokemonarray => {
+        console.log("Got the content from the server: ", pokemonarray);
+        this.pokemonArray= pokemonarray;
+      });
+    }
+
+    //id will be set by the server if newContentItem doesn't have one
+    addPokemonToList(newContentItem: Content): void {
+      this.pokemonService.addContent(newContentItem).subscribe(newContentFromServer => {
+        console.log("Content added and came back from the server!", newContentFromServer);
+
+        //
+        this.getContentFromServer();
+
+        // more efficient, but potentially misses other server updates to the content
+        // this.pokemonsters.push(newContentFromServer);
+        // this.pokemonsters = [...this.pokemonsters]; // using the spread operator
+      });
+    }
+
+    updatePokemonInList(contentItem: Content): void {
+      this.pokemonService.updateContent(contentItem).subscribe(() => {
+        console.log("Content updated successfully.");
+        this.getContentFromServer();
+      });
+    }
 }

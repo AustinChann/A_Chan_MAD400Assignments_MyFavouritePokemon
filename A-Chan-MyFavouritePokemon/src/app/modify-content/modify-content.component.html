@@ -1,0 +1,19 @@
+<div>
+  Name: <input #name>
+</div>
+<div>
+  Description: <input #description>
+</div><div>
+  Creator: <input #creator>
+</div><div>
+  Image Url: <input #imgUrl>
+</div><div>
+  Type: <input #type>
+</div><div>
+  Tags: <input #tags>
+</div>
+<div>
+  <button (click)="addPokemon(name.value, description.value, creator.value, imgUrl.value, type.value, tags.value)">
+    Add Pokemon
+  </button>
+</div>

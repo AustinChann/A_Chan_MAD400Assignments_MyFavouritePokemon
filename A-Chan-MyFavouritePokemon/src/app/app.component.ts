@@ -20,16 +20,18 @@ import { MessageServiceService } from "./Messages/message-service.service";
 })
 export class AppComponent {
   title = 'A-Chan-MyFavouritePokemon';
+  pokemonArray: Content[];
   individualPokemon?: Content;
 
    constructor(private pokemonService: ContentService, private messageService: MessageServiceService) {
+     this.pokemonArray = [];
    }
 
-   ngOnInit(): void {
-     this.pokemonService.getContentItem(2).subscribe(
-       pokemonAtIndex => this.individualPokemon = pokemonAtIndex
-     );
-   }
+   // ngOnInit(): void {
+   //   this.pokemonService.getContentItem(2).subscribe(
+   //     pokemonAtIndex => this.individualPokemon = pokemonAtIndex
+   //   );
+   // }
 
    displayPokemon(id: string): void {
      if(!parseInt(id)) {
@@ -46,4 +48,24 @@ export class AppComponent {
        }
      });
    }
+
+  getContentFromServer(): void {
+    this.pokemonService.getContent().subscribe(pokemonarray => {
+      console.log("Got the content from the server: ", pokemonarray);
+      this.pokemonArray= pokemonarray;
+    });
+  }
+
+  addPokemonToList(newContentItem: Content): void {
+    this.pokemonService.addContent(newContentItem).subscribe(newContentFromServer => {
+      console.log("Content added and came back from the server!", newContentFromServer);
+
+      //
+      this.getContentFromServer();
+
+      // more efficient, but potentially misses other server updates to the content
+      // this.pokemonsters.push(newContentFromServer);
+      // this.pokemonsters = [...this.pokemonsters]; // using the spread operator
+    });
+  }
 }

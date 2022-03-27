@@ -6,6 +6,10 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { PokemonTypePipe } from './pokemon-type.pipe';
 import { HoverEffectDirective } from './hover-effect.directive';
+import { HttpClientModule} from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./service/in-memory-data.service";
+import { ModifyContentComponent } from './modify-content/modify-content.component';
 
 @NgModule({
   declarations: [
@@ -13,10 +17,16 @@ import { HoverEffectDirective } from './hover-effect.directive';
     ContentCardComponent,
     ContentListComponent,
     PokemonTypePipe,
-    HoverEffectDirective
+    HoverEffectDirective,
+    ModifyContentComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 1000,
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
