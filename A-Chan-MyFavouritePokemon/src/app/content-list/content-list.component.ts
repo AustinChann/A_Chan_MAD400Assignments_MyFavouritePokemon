@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { ContentService } from "../PokemonService/content.service";
+import { MessageServiceService} from "../Messages/message-service.service";
 
 @Component({
   selector: 'app-content-list',
@@ -11,7 +12,7 @@ export class ContentListComponent implements OnInit {
     pokemonArray: Content[];
     titleFound?: boolean;
 
-  constructor(private pokemonService: ContentService) {
+  constructor(private pokemonService: ContentService, private messageService: MessageServiceService) {
     this.pokemonArray = [];
   }
 
@@ -35,7 +36,7 @@ export class ContentListComponent implements OnInit {
 
     getContentFromServer(): void {
       this.pokemonService.getContent().subscribe(pokemonarray => {
-        console.log("Got the content from the server: ", pokemonarray);
+        this.messageService.add(`Got the content from the server: ${pokemonarray}`);
         this.pokemonArray= pokemonarray;
       });
     }
@@ -43,7 +44,7 @@ export class ContentListComponent implements OnInit {
     //id will be set by the server if newContentItem doesn't have one
     addPokemonToList(newContentItem: Content): void {
       this.pokemonService.addContent(newContentItem).subscribe(newContentFromServer => {
-        console.log("Content added and came back from the server!", newContentFromServer);
+        this.messageService.add("Content added and came back from the server!");
 
         //
         this.getContentFromServer();
@@ -56,7 +57,7 @@ export class ContentListComponent implements OnInit {
 
     updatePokemonInList(contentItem: Content): void {
       this.pokemonService.updateContent(contentItem).subscribe(() => {
-        console.log("Content updated successfully.");
+        this.messageService.add("Content updated successfully.");
         this.getContentFromServer();
       });
     }

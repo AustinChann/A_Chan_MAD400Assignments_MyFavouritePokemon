@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Content } from "../helper-files/content-interface";
+import { ContentService} from "../PokemonService/content.service";
 
 @Component({
   selector: 'app-modify-content',
@@ -9,7 +10,8 @@ import { Content } from "../helper-files/content-interface";
 export class ModifyContentComponent implements OnInit {
   @Output() newPokemonEvent: EventEmitter<Content> = new EventEmitter<Content>();
   newPokemon?: Content;
-  constructor() { }
+
+  constructor(private pokemonService: ContentService) { }
 
   ngOnInit(): void {
   }

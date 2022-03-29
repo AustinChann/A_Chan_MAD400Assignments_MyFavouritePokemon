@@ -51,16 +51,15 @@ export class AppComponent {
 
   getContentFromServer(): void {
     this.pokemonService.getContent().subscribe(pokemonarray => {
-      console.log("Got the content from the server: ", pokemonarray);
+      this.messageService.add(`Got the content from the server: ${pokemonarray}`);
       this.pokemonArray= pokemonarray;
     });
   }
 
   addPokemonToList(newContentItem: Content): void {
     this.pokemonService.addContent(newContentItem).subscribe(newContentFromServer => {
-      console.log("Content added and came back from the server!", newContentFromServer);
+      this.messageService.add("Content added and came back from the server!");
 
-      //
       this.getContentFromServer();
 
       // more efficient, but potentially misses other server updates to the content

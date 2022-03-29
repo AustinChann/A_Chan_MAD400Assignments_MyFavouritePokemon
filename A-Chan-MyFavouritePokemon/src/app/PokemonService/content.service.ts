@@ -14,15 +14,15 @@ export class ContentService {
     headers: new HttpHeaders({ 'Content-type': 'application/json' })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private messageService: MessageServiceService) { }
 
   getContent(): Observable<Content[]> {
-    console.log("Getting content from the server");
+    this.messageService.add("Getting content from the server");
     return this.http.get<Content[]>("api/content");
   }
 
   addContent(newContentItem: Content): Observable<Content> {
-    console.log("Adding new pokemon: ", newContentItem);
+    this.messageService.add(`Adding new pokemon: ${newContentItem}`);
     return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
   }
 
