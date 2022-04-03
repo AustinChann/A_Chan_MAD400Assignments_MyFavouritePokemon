@@ -1,7 +1,7 @@
 <!--<form>-->
 <div>
   <input #titleSearch>
-  <button (click)="checkForTitle(titleSearch.value)">Title Check</button>
+  <button mat-raised-button color="primary" (click)="checkForTitle(titleSearch.value)">Title Check</button>
   <div>
     <span class="success" *ngIf="titleFound"> {{ titleSearch.value}} found!</span>
     <span class="failure" *ngIf="titleFound === false"> {{ titleSearch.value}} not found!</span>
