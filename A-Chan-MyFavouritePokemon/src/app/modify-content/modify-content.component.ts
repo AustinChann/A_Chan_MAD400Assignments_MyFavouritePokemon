@@ -5,7 +5,7 @@ import { ContentService} from "../PokemonService/content.service";
 @Component({
   selector: 'app-modify-content',
   templateUrl: './modify-content.component.html',
-  styleUrls: ['./modify-content.component.css']
+  styleUrls: ['./modify-content.component.scss']
 })
 export class ModifyContentComponent implements OnInit {
   @Output() newPokemonEvent: EventEmitter<Content> = new EventEmitter<Content>();
