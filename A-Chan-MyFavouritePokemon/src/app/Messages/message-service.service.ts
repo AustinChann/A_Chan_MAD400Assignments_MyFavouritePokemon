@@ -7,7 +7,7 @@ export class MessageServiceService {
   messages: string[] = [];
 
   add(message: string) {
-    this.messages.push();
+    this.messages.push(message);
   }
 
   clear() {
