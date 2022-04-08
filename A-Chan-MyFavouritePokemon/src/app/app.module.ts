@@ -10,10 +10,15 @@ import { HoverEffectDirective } from './hover-effect.directive';
 import { HttpClientModule} from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./service/in-memory-data.service";
-import { ModifyContentComponent } from './modify-content/modify-content.component';
+import { ModifyContentComponent, ModifyContentDialogComponent } from './modify-content/modify-content.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MessagesComponent } from './messages/messages.component';
 
 
 @NgModule({
@@ -24,6 +29,8 @@ import { MatInputModule } from '@angular/material/input';
     PokemonTypePipe,
     HoverEffectDirective,
     ModifyContentComponent,
+    ModifyContentDialogComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,11 @@ import { MatInputModule } from '@angular/material/input';
     }),
     BrowserAnimationsModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    MatBadgeModule,
+    MatChipsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

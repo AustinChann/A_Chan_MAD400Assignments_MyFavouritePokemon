@@ -42,4 +42,7 @@
   <button mat-raised-button color="primary" (click)="addPokemon(name.value, description.value, creator.value, imgUrl.value, type.value, tags.value)">
     Add Pokemon
   </button>
+  <button mat-raised-button color="accent" (click)="openDialog()">
+    {{ buttonText }}
+  </button>
 </div>
