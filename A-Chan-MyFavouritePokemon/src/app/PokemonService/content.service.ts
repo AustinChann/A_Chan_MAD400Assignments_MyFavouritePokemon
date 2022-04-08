@@ -26,10 +26,10 @@ export class ContentService {
     return this.http.post<Content>("api/content", newContentItem, this.httpOptions);
   }
 
-  // getContentItem(id: number): Observable<Content> {
-  //   this.messageService.add(`Content item at id: ${id}`);
-  //   return of(POKEMONARRAY[id]);
-  // }
+  getContentItem(id: number): Observable<Content> {
+    this.messageService.add(`Content item at id: ${id}`);
+    return this.http.get<Content>("api/pokemon/" + id);
+  }
 
   updateContent(contentItem: Content): Observable<any> {
     return this.http.put("api/content", contentItem, this.httpOptions);
