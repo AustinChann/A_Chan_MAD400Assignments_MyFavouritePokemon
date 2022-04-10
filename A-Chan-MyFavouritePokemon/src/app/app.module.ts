@@ -19,7 +19,9 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MessagesComponent } from './messages/messages.component';
-
+import { AppRoutingModule } from './app-routing.module';
+import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { MessagesComponent } from './messages/messages.component';
     ModifyContentComponent,
     ModifyContentDialogComponent,
     MessagesComponent,
+    PokemonDetailsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,8 @@ import { MessagesComponent } from './messages/messages.component';
     MatCardModule,
     MatBadgeModule,
     MatChipsModule,
-    MatDialogModule
+    MatDialogModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

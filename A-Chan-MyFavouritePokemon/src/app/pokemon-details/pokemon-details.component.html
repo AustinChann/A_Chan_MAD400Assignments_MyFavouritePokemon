@@ -1,0 +1,30 @@
+<mat-card *ngIf="individualPokemon">
+  <mat-card-header>
+    <!-- <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>{{ individualPokemon.title }}</mat-card-title>
+    <mat-card-subtitle class="creator">{{ individualPokemon?.creator }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image *ngIf="individualPokemon.imgURL" [src]="individualPokemon?.imgURL" alt="Pokemon image">
+  <img mat-card-image *ngIf="!individualPokemon.imgURL"
+       src="https://i0.wp.com/www.alphr.com/wp-individualPokemon/uploads/2016/07/whos_that_pokemon.png?fit=1920%2C1080&ssl=1" alt="pokemon default image">
+  <!-- Default image -->
+  <mat-card-individualPokemon>
+    <p class="description">
+      {{ individualPokemon.description }}
+    </p>
+    <div class="meta-data">
+      <div class="author-info">
+        <span appHoverAffect affect="textDecoration" *ngIf="individualPokemon.type" class="type">{{ individualPokemon.type }}</span>
+      </div>
+      <mat-chip-list class="tags" *ngIf="individualPokemon.tags" aria-label="Types for Pokemon">
+        <mat-chip appHoverAffect color="primary" *ngFor="let tag of individualPokemon.tags">
+          {{ tag }}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </mat-card-individualPokemon>
+  <mat-card-actions>
+    <app-modify-individualPokemon-component buttonText="Update individualPokemon" [newindividualPokemon]="individualPokemon">
+    </app-modify-individualPokemon-component>
+  </mat-card-actions>
+</mat-card>

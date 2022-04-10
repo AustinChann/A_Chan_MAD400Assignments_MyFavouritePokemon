@@ -66,6 +66,7 @@ export class ModifyContentComponent implements OnInit {
       });
     }
   }
+
   addPokemon(name: string, description: string, creator: string, imageUrl: string, type: string, tags: string): void {
     this.newPokemon = {
       title: name,

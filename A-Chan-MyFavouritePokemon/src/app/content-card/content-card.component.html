@@ -9,9 +9,6 @@
        src="https://i0.wp.com/www.alphr.com/wp-content/uploads/2016/07/whos_that_pokemon.png?fit=1920%2C1080&ssl=1" alt="pokemon default image">
   <!-- Default image -->
   <mat-card-content>
-    <p class="description">
-      {{ content.description }}
-    </p>
     <div class="meta-data">
       <div class="author-info">
         <span appHoverAffect affect="textDecoration" *ngIf="content.type" class="type">{{ content.type }}</span>
@@ -23,6 +20,7 @@
       </mat-chip-list>
     </div>
   </mat-card-content>
+  <a [routerLink]="['/content', content?.id]" routerLinkActive="active"></a>
   <mat-card-actions>
     <app-modify-content-component buttonText="Update Content" [newContent]="content">
     </app-modify-content-component>
