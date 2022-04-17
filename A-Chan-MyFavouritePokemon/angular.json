@@ -36,7 +36,7 @@
               "src/themes.scss"
 						],
 						"scripts": [],
-						"serviceWorker": true,
+						"Worker": true,
 						"ngswConfigPath": "ngsw-config.json"
 					},
 					"configurations": {

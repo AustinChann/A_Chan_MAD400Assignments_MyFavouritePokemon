@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import {ApplicationRef, Component} from '@angular/core';
 import { Content } from "./helper-files/content-interface";
 import { ContentService } from "./PokemonService/content.service";
 import { MessageServiceService } from "./Messages/message-service.service";
+import {LogUpdateService} from "./log-update.service";
+import {SwUpdate} from "@angular/service-worker";
+import {concat, first, interval} from "rxjs";
 
 // interface Content {
 //   id: Number;
@@ -23,15 +26,25 @@ export class AppComponent {
   pokemonArray: Content[];
   individualPokemon?: Content;
 
-   constructor(private pokemonService: ContentService, private messageService: MessageServiceService) {
+   constructor(private pokemonService: ContentService, private messageService: MessageServiceService,
+               private logService: LogUpdateService, private appRef: ApplicationRef, private updates: SwUpdate) {
      this.pokemonArray = [];
    }
 
-   // ngOnInit(): void {
-   //   this.pokemonService.getContentItem(2).subscribe(
-   //     pokemonAtIndex => this.individualPokemon = pokemonAtIndex
-   //   );
-   // }
+   ngOnInit(): void {
+     this.pokemonService.getContentItem(2).subscribe(
+       pokemonAtIndex => this.individualPokemon = pokemonAtIndex
+     );
+     this.logService.init();
+
+     const appIsStable$ = this.appRef.isStable.pipe(first(isStable => isStable === true));
+     const everyHalfHour$ = interval(1 * 60 * 30 * 1000);
+     const everyHalfHourOnceAppIsStable$ = concat(appIsStable$, everyHalfHour$);
+
+     everyHalfHourOnceAppIsStable$.subscribe(() => {
+       this.updates.checkForUpdate();
+     });
+   }
 
    displayPokemon(id: string): void {
      if(!parseInt(id)) {

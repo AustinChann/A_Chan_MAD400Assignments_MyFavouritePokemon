@@ -18,6 +18,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule} from "@angular/material/snack-bar";
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { PokemonDetailsComponent } from './pokemon-details/pokemon-details.component';
@@ -53,6 +54,7 @@ import { environment } from '../environments/environment';
     MatBadgeModule,
     MatChipsModule,
     MatDialogModule,
+    MatSnackBarModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
