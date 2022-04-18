@@ -1,7 +1,13 @@
+<app-modify-content (newPokemonEvent)="addPokemonToList($event)" (updatePokemonEvent)="updatePokemonInList()">
+
+</app-modify-content>
 <!--<form>-->
 <div>
-  <input #titleSearch>
-  <button (click)="checkForTitle(titleSearch.value)">Title Check</button>
+  <mat-form-field appearance="fill">
+    <mat-label>Pokemon Name</mat-label>
+    <input matInput #titleSearch>
+  </mat-form-field>
+  <button mat-raised-button color="primary" (click)="checkForTitle(titleSearch.value)">Title Check</button>
   <div>
     <span class="success" *ngIf="titleFound"> {{ titleSearch.value}} found!</span>
     <span class="failure" *ngIf="titleFound === false"> {{ titleSearch.value}} not found!</span>
