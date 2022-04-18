@@ -7,6 +7,8 @@ import { ContentCardComponent } from './content-card/content-card.component';
 import { ContentListComponent } from './content-list/content-list.component';
 import { PokemonTypePipe } from './pokemon-type.pipe';
 import { HoverEffectDirective } from './hover-effect.directive';
+import { MessagesComponentComponent } from './messages-component/messages-component.component';
+
 import { HttpClientModule} from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from "./service/in-memory-data.service";
@@ -33,6 +35,7 @@ import { environment } from '../environments/environment';
     ContentListComponent,
     PokemonTypePipe,
     HoverEffectDirective,
+    MessagesComponentComponent
     ModifyContentComponent,
     ModifyContentDialogComponent,
     MessagesComponent,
