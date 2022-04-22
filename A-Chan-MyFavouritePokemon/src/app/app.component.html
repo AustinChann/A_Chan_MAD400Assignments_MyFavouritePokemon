@@ -1,1 +1,17 @@
+<h1>Add Pokemon to List</h1>
+<app-modify-content (newPokemonEvent)="addPokemonToList($event)"></app-modify-content>
+<h1>Individual item</h1>
+<p>
+  <mat-form-field appearance="fill">
+    <mat-label>Display single item at id: </mat-label>
+    <input matInput #id>
+  </mat-form-field>
+  <button mat-raised-button color="accent" (click)="displayPokemon(id.value)">Display item!</button>
+</p>
+<!-- <app-content-card [content]="individualPokemon" class="individualPokemon"></app-content-card> -->
+<br><hr>
+
+<h1>Content Lists</h1>
 <app-content-list></app-content-list>
+
+<!-- <router-outlet></router-outlet> -->

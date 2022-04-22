@@ -24,6 +24,10 @@
     border: 3px solid greenyellow;
   }
 
+  :host.individualPokemon {
+    box-shadow: 5px 10px #55555588;
+  }
+
   :host(.content-i) {
 
   }
@@ -50,7 +54,7 @@
   }
 
   .type {
-
+    margin: 8px 16px 8px 0;
   }
 
   .tags {
@@ -63,5 +67,9 @@
     background-color: #747bdb;
     border-radius: 8px;
     margin: 0 5px 0 0;
+  }
+
+  .tags .mat-chip-list-wrapper {
+    justify-content: center;
   }
 
